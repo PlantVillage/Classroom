@@ -8,7 +8,7 @@ Tensorflow Object Detection API depends on the following libraries:
 *   Python-tk
 *   Pillow 1.0
 *   lxml
-*   tf Slim (which is included in the "tensorflow/models/research/" checkout)
+*   tf Slim (which is included in the "Classroom/computer_vision/object_detection" directory)
 *   Jupyter notebook
 *   Matplotlib
 *   Tensorflow (>=1.9.0)
@@ -21,56 +21,22 @@ instructions](https://www.tensorflow.org/install/). A typical user can install
 Tensorflow using one of the following commands:
 
 ``` bash
-# For CPU
-pip install tensorflow
-# For GPU
-pip install tensorflow-gpu
+pip install tensorflow==1.15.5
 ```
 
-The remaining libraries can be installed on Ubuntu 16.04 using via apt-get:
+The remaining libraries can be installed using pip:
 
 ``` bash
-sudo apt-get install protobuf-compiler python-pil python-lxml python-tk
-pip install --user Cython
+pip install --user Cython==0.29.30
 pip install --user contextlib2
-pip install --user jupyter
-pip install --user matplotlib
+pip install --user pillow==9.0.1
+pip install --user lxml==4.9.1
+pip install --user jupyter==1.0.0
+pip install --user matplotlib==3.3.4
+pip install --user protobuf==3.19.4
+pip install --user pycocotools==2.0
 ```
 
-Alternatively, users can install dependencies using pip:
-
-``` bash
-pip install --user Cython
-pip install --user contextlib2
-pip install --user pillow
-pip install --user lxml
-pip install --user jupyter
-pip install --user matplotlib
-```
-
-<!-- common_typos_disable -->
-**Note**: sometimes "sudo apt-get install protobuf-compiler" will install
-Protobuf 3+ versions for you and some users have issues when using 3.5.
-If that is your case, try the [manual](#Manual-protobuf-compiler-installation-and-usage) installation.
-
-## COCO API installation
-
-Download the
-[cocoapi](https://github.com/cocodataset/cocoapi) and
-copy the pycocotools subfolder to the tensorflow/models/research directory if
-you are interested in using COCO evaluation metrics. The default metrics are
-based on those used in Pascal VOC evaluation. To use the COCO object detection
-metrics add `metrics_set: "coco_detection_metrics"` to the `eval_config` message
-in the config file. To use the COCO instance segmentation metrics add
-`metrics_set: "coco_mask_metrics"` to the `eval_config` message in the config
-file.
-
-```bash
-git clone https://github.com/cocodataset/cocoapi.git
-cd cocoapi/PythonAPI
-make
-cp -r pycocotools <path_to_tensorflow>/models/research/
-```
 
 ## Protobuf Compilation
 
@@ -81,26 +47,8 @@ the tensorflow/models/research/ directory:
 
 
 ``` bash
-# From tensorflow/models/research/
+# From Classroom/computer_vision/object_detection
 protoc object_detection/protos/*.proto --python_out=.
-```
-
-**Note**: If you're getting errors while compiling, you might be using an incompatible protobuf compiler. If that's the case, use the following manual installation
-
-## Manual protobuf-compiler installation and usage
-Download and install the 3.0 release of protoc, then unzip the file.
-
-```bash
-# From tensorflow/models/research/
-wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
-unzip protobuf.zip
-```
-
-Run the compilation process again, but use the downloaded version of protoc
-
-```bash
-# From tensorflow/models/research/
-./bin/protoc object_detection/protos/*.proto --python_out=.
 ```
 
 ## Add Libraries to PYTHONPATH
@@ -111,7 +59,7 @@ tensorflow/models/research/:
 
 
 ``` bash
-# From tensorflow/models/research/
+# From Classroom/computer_vision/object_detection
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 ```
 
@@ -126,5 +74,7 @@ You can test that you have correctly installed the Tensorflow Object Detection\
 API by running the following command:
 
 ```bash
+# From Classroom/computer_vision/object_detection
+
 python object_detection/builders/model_builder_test.py
 ```
