@@ -66,11 +66,11 @@ git clone https://github.com/PlantVillage/Classroom.git
 
 ```bash
 # From Classroom/computer_vision/object_detection
-python object_detection/create_tf_record.py \
-    			--images_dir={PATH_TO}/images \
-    			--annotations_dir={PATH_TO}/annotations
-    			--trainval_dir={PATH_TO}/trainvals
-    			--label_map_path={PATH_TO}/cassava_label_map.pbtxt \
+python object_detection/create_tf_record.py \  
+    			--images_dir={PATH_TO}/images \  
+    			--annotations_dir={PATH_TO}/annotations \  
+    			--trainval_dir={PATH_TO}/trainvals \  
+    			--label_map_path={PATH_TO}/cassava_label_map.pbtxt \  
     			--output_dir={PATH_TO}/tfrecords \  
           --version=’1’ \  
     			--model=’ssd’ \  
