@@ -1,7 +1,7 @@
 
 # Creating TensorFlow Records
 
-Tensorflow Object Detection API reads data using the TFRecord file format. There are a few things we need to prepare before we can generate the TFRecords. 
+Tensorflow Object Detection API reads data using the TFRecord file format. There are a few things we need to prepare before we can generate the TFRecords. Follow the instructions below to convert a set of images and annotations into TFRecords, which can be used to train an Tensorflow Object Detection model. 
 
 ## Download the Images and Annotations
 
@@ -9,23 +9,28 @@ Download the data from [here](https://www.dropbox.com/s/5oph6gx38s2zw8y/cassava_
 
 ## Create label map
 
-Create a text file called `cassava_label_map.pbtxt` and list all object label names and corresponding label IDs. Use the following format for each object in label_map.pbtxt:  
+Create a text file called `cassava_label_map.pbtxt` and list all class label names and corresponding label IDs. Use the following format for each class in `cassava_label_map.pbtxt`:  
 ```bash
 item {  
   id: 1  
-  name: 'ClassLabel1'  
+  name: 'ClassLabel_1'  
 }  
 
 item {  
   id: 2  
-  name: 'ClassLabel2'  
+  name: 'ClassLabel_2'  
+}
+
+item {  
+  id: 3  
+  name: 'ClassLabel_3'  
 }
 ```
-* Be sure to replace 'ClassLabel2' and 'ClassLabel2' with your actual class 1 and class 2 label names. You can find the label names within the xml files. There are 3 labels corresponding to the 3 classes we will be using. You can assign any id to any name.  
+* Be sure to replace `ClassLabel_1`, `ClassLabel_2`, and `ClassLabel_3` with the correct label names. You can find the label names within the xml files. There are 3 differrent labels corresponding to the 3 classes we will be using. You can assign any id (1-3) to any label name.  
 
 ## Create trainval file
 
-Create a text file called `trainval_cassava_1.txt` and list all filenames (without extensions). Your trainval file should look similar to this:
+When creating TFRecords, we need to specify the files that are to be added to the TFRecrod. In order to keep track of the contents of each version of TFrecrod, we need to specify the crop and version in the filename that the trainval refers to. In this assignment, you will be creating a trainval for cassava and it will be version 1. Therefore, create a text file called `trainval_cassava_1.txt`. Within the file, list all of the filenames (without extensions) that you would like to be included in the TFRecord. Your trainval file should look similar to this:
 ``` bash
 CassavaBSD_1  
 CassavaBSD_2  
@@ -33,6 +38,7 @@ CassavaBSD_3
 CassavaMD_1  
 CassavaMD_2  
 CassavaMD_3
+...
 ```
 
 ## Set up the Folder Structure
