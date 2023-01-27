@@ -32,18 +32,22 @@ CassavaBSD_2
 CassavaBSD_3  
 CassavaMD_1  
 CassavaMD_2  
-CassavaMD_3  
+CassavaMD_3
 ```
 
 ## Set up the Folder Structure
 
-– data: (contains  folders for annotations, images, trainvals and the cassava_label_map.pbtxt).  
+Create a series of folders and structure them according to the following structure:  
+
+– data: (outermost folder containing folders for annotations, images, trainvals and the cassava_label_map.pbtxt).  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;– images: (contains the image files in jpg format)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;– annotations (contains all the annotation files in xml format)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;– trainvals (contains the collection of trainval files)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;– tfrecords (contains the generated TF Records)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;– tfrecords (contains the generated TF Records)  
 
-![alt text](https://www.dropbox.com/s/9rkz9ql1cf782fx/Screen%20Shot%202023-01-24%20at%2012.04.41%20PM.png?dl=0)
+Here is a visualization showing how the various folders and files should be nested within the `data` folder
+
+![Data Structure](data_structure_cv.png)
 
 ## Generate the TFRecord files.
 
