@@ -67,15 +67,15 @@ git clone https://github.com/PlantVillage/Classroom.git
 ```bash
 # From Classroom/computer_vision/object_detection
 python object_detection/create_tf_record.py \  
-    			--images_dir={PATH_TO}/images \  
-    			--annotations_dir={PATH_TO}/annotations \  
-    			--trainval_dir={PATH_TO}/trainvals \  
-    			--label_map_path={PATH_TO}/cassava_label_map.pbtxt \  
-    			--output_dir={PATH_TO}/tfrecords \  
-          --version=’1’ \  
-    			--model=’ssd’ \  
-    			--crop=’cassava’ \  
-    			--group=False
+            --images_dir={PATH_TO}/images \  
+            --annotations_dir={PATH_TO}/annotations \  
+            --trainval_dir={PATH_TO}/trainvals \  
+            --label_map_path={PATH_TO}/cassava_label_map.pbtxt \  
+            --output_dir={PATH_TO}/tfrecords \  
+            --version=’1’ \  
+            --model=’ssd’ \  
+            --crop=’cassava’ \  
+            --group=False
 ```
 
 * Note: You need to replace the `{PATH_TO}` variable with the true path to your files and directories. Do not change the values for the `version`, `model`, `crop`, and `group` flags.
