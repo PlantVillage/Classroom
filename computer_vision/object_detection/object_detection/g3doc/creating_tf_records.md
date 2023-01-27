@@ -55,6 +55,13 @@ Here is a visualization showing how the various folders and files should be nest
 
 ![Data Structure](data_structure_cv.png)
 
+## Clone Github Repository
+Execute the following command to clone the PlantVillage Classroom github repository containing the code you will use to create the TFRecords. Be sure to `cd` through the terminal to the local directory where you intend to download (clone) the repository before executing the `git clone` command.
+
+```bash
+git clone https://github.com/PlantVillage/Classroom.git
+```
+
 ## Generate the TFRecord files.
 
 ```bash
@@ -65,7 +72,7 @@ python object_detection/create_tf_record.py \
     			--trainval_dir={PATH_TO}/trainvals
     			--label_map_path={PATH_TO}/cassava_label_map.pbtxt \
     			--output_dir={PATH_TO}/tfrecords \  
-                --version=’1’ \  
+          --version=’1’ \  
     			--model=’ssd’ \  
     			--crop=’cassava’ \  
     			--group=False
@@ -74,7 +81,7 @@ python object_detection/create_tf_record.py \
 * Note: You need to replace the `{PATH_TO}` variable with the true path to your files and directories. Do not change the values for the `version`, `model`, `crop`, and `group` flags.
 
 If everything was configured correctly, the script will produce two TFRecord files named `cassava_train_1.record` and
-`cassava_val_1.record` and save them in the directory that you specified with the `--output_dir` flag.
+`cassava_eval_1.record` and save them in the directory that you specified with the `--output_dir` flag.
 
 ## Upload Files
 
