@@ -1,4 +1,56 @@
 
+# Tensorflow Installation
+
+## Dependencies
+
+Tensorflow Object Detection API depends on the following libraries:
+
+*   Protobuf 3.0.0
+*   Python-tk
+*   Pillow 1.0
+*   lxml
+*   tf Slim (which is included in the "Classroom/computer_vision/object_detection" directory)
+*   Jupyter notebook
+*   Matplotlib
+*   Tensorflow (>=1.9.0)
+*   Cython
+*   contextlib2
+*   cocoapi
+
+For detailed steps to install Tensorflow, follow the [Tensorflow installation
+instructions](https://www.tensorflow.org/install/). A typical user can install
+Tensorflow using the following command:
+
+``` bash
+pip install tensorflow
+```
+
+The remaining libraries can be installed using pip:
+
+``` bash
+pip install --user Cython
+pip install --user contextlib2
+pip install --user pillow
+pip install --user lxml
+pip install --user jupyter
+pip install --user matplotlib
+pip install --user protobuf
+pip install --user pycocotools
+```
+
+
+## Add Libraries to PYTHONPATH
+
+When running locally, the Classroom/computer_vision/object_detection and slim directories
+should be appended to PYTHONPATH. This can be done by running the following from
+Classroom/computer_vision/object_detection:
+
+
+``` bash
+# From Classroom/computer_vision/object_detection
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+```
+
 # Creating TensorFlow Records
 
 Tensorflow Object Detection API reads data using the TFRecord file format. There are a few things we need to prepare before we can generate the TFRecords. Follow the instructions below to convert a set of images and annotations into TFRecords, which can be used to train an Tensorflow Object Detection model. 
