@@ -338,9 +338,9 @@ def main(_):
                len(train_examples), len(val_examples))
   train_output_path = os.path.join(FLAGS.output_dir, ('train_'+ crop_name + '_' + version_num + '.record'))
   val_output_path = os.path.join(FLAGS.output_dir, 'eval_'+ crop_name + '_' + version_num + '.record')
-  #print('\n\ncreating VALIDATION record\n\n')
-  #create_tf_record(val_output_path, label_map_dict, annotations_dir,
-  #                 image_dir, val_examples, model_name, creating_train=False)
+  print('\n\ncreating VALIDATION record\n\n')
+  create_tf_record(val_output_path, label_map_dict, annotations_dir,
+                   image_dir, val_examples, model_name, creating_train=False)
   print('\n\ncreating TRAIN record\n\n')
   create_tf_record(train_output_path, label_map_dict, annotations_dir,
                    image_dir, train_examples, model_name, creating_train=True)
