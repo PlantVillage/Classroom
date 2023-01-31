@@ -118,24 +118,25 @@ git clone https://github.com/PlantVillage/Classroom.git
 
 ## Generate the TFRecord files.
 
+Configure the flag paths within the create_tf_record.py file. The flags should be configure as follows:
 ```bash
 # From Classroom/computer_vision/object_detection
 python object_detection/create_tf_record.py \
-	--images_dir={PATH_TO}/images \
-	—-annotations_dir={PATH_TO}/annotations \
-	--trainval_dir={PATH_TO}/trainvals \
-	--label_map_path={PATH_TO}/cassava_label_map.pbtxt \
-	--output_dir={PATH_TO}/tfrecords \
-	--version=1 \
-	--model=ssd \
-	--crop=cassava \
-	--group=False
+    --images_dir={PATH_TO}/images \
+    --annotations_dir={PATH_TO}/annotations \
+    --trainval_dir={PATH_TO}/trainvals \
+    --label_map_path={PATH_TO}/cassava_label_map.pbtxt \
+    --output_dir={PATH_TO}/tfrecords \
+    --version=1 \
+    --model=ssd \
+    --crop=cassava \
+    --group=False
 ```
 
 * Note: You need to replace the `{PATH_TO}` variable with the true path to your files and directories. Do not change the values for the `version`, `model`, `crop`, and `group` flags.
 
-If everything was configured correctly, the script will produce two TFRecord files named `cassava_train_1.record` and
-`cassava_eval_1.record` and save them in the directory that you specified with the `--output_dir` flag.
+If everything was configured correctly, the script will produce two TFRecord files named `train_cassava_1.record` and
+`eval_cassava_1.record` and save them in the directory that you specified with the `--output_dir` flag.
 
 ## Upload Files
 
