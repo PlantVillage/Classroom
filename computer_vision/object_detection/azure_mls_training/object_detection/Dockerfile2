@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/azureml/base-gpu:0.2.2
+
+LABEL org.opencontainers.image.title="plantvillage-mls"
+
+RUN apt-get update
+RUN apt-get install -y git
+
+WORKDIR /
+
